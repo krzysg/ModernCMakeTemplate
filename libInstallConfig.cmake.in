@@ -1,0 +1,4 @@
+include(CMakeFindDependencyMacro)
+#find_dependency(SomeLib 2.0)
+include("${CMAKE_CURRENT_LIST_DIR}/@TARGET_FILE_NAME@.cmake")
+
