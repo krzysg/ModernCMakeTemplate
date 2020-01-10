@@ -1,17 +1,13 @@
-//
-// Created by gonciarz on 1/7/20.
-//
-
-#ifndef TESTINSTALL_MYLIB_H
-#define TESTINSTALL_MYLIB_H
+#ifndef XXX
+#define XXX
 
 #include <iostream>
 
-class SuperHero {
+class LibA {
 public:
-    SuperHero() {
-        std::cout << "Hello from SuperHero object!" << std::endl;
+    LibA() {
+        std::cout << "Hello from LibA!" << std::endl;
     }
 };
 
-#endif //TESTINSTALL_MYLIB_H
+#endif
