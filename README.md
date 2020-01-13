@@ -17,13 +17,13 @@ With minimum effort it should be easy to copy/paste it and modify to use in any 
 ## Use cases
 To play with shown use cases please clone the whole project first via:
 ```
-git clone https://github.com/krzysg/ModernCmakeTemplate.git
-cd ModernCmakeTemplate
+git clone https://github.com/krzysg/ModernCMakeTemplate.git
+cd ModernCMakeTemplate
 ```
 or if you are using SSH keys:
 ```
-git clone git@github.com:krzysg/ModernCmakeTemplate.git
-cd ModernCmakeTemplate
+git clone git@github.com:krzysg/ModernCMakeTemplate.git
+cd ModernCMakeTemplate
 ```
 
 **NOTICE**: Each use case commands are meant to run from project root directory.
