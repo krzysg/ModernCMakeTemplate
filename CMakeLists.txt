@@ -6,5 +6,5 @@ add_subdirectory("LibA")
 add_subdirectory("LibB")
 
 # ----------------- Add test executable
-add_executable(testInstall src/main.cpp)
-target_link_libraries(testInstall LibB::libB)
+add_executable(main src/main.cpp)
+target_link_libraries(main LibA::libA LibB::libB)

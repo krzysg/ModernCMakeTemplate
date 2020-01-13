@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(LibB VERSION 1.0.0 LANGUAGES CXX)
 
+option(LIBB_TESTS "Should tests be build?" OFF)
+
 # ----------------- Create library
 
 set(LIB_NAMESPACE LibB)
@@ -47,5 +49,7 @@ install(FILES
 #Add an alias so that library can be used inside the build tree, e.g. when testing
 add_library(${LIB_NAMESPACE}::${LIB_NAME} ALIAS ${LIB_NAME})
 
-enable_testing()
-add_subdirectory(test)
+if (LIBB_TESTS)
+    enable_testing()
+    add_subdirectory(test)
+endif()
