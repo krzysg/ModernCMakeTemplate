@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 project(ModernCmakeTemplate VERSION 1.0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 11)
 
+# ----------------- Use LibA and LibB as a subprojects
 add_subdirectory("LibA")
 add_subdirectory("LibB")
 

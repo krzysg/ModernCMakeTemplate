@@ -18,6 +18,7 @@ endif()
 # Add googletest directly to build. This defines the gtest and gtest_main targets.
 add_subdirectory(${GOOGLETEST_DIRECTORY}/src ${GOOGLETEST_DIRECTORY}/build EXCLUDE_FROM_ALL)
 
+
 # =============================================================================
 # Build tests
 # =============================================================================

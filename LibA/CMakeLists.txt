@@ -3,8 +3,8 @@ project(LibA VERSION 1.0.0 LANGUAGES CXX)
 
 option(LIBA_TESTS "Should tests be build?" OFF)
 
-# ----------------- Create library
 
+# ----------------- Create library
 set(LIB_NAMESPACE LibA)
 set(LIB_NAME libA)
 
@@ -14,6 +14,7 @@ target_include_directories(${LIB_NAME} INTERFACE
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 target_compile_options(${LIB_NAME} INTERFACE -Werror -Wall -pedantic)
+
 
 # ----------------- Install
 include(GNUInstallDirs)
@@ -45,6 +46,8 @@ install(FILES
 #Add an alias so that library can be used inside the build tree, e.g. when testing
 add_library(${LIB_NAMESPACE}::${LIB_NAME} ALIAS ${LIB_NAME})
 
+
+# ----------------- Test
 if (LIBA_TESTS)
     enable_testing()
     add_subdirectory(test)
