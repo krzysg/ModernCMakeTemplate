@@ -1,15 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
-project(LibA VERSION 1.0.0 LANGUAGES CXX)
-
-option(LIBA_TEST "Should test be build?" OFF)
+project(LibB VERSION 1.0.0 LANGUAGES CXX)
 
 # ----------------- Create library
 
-set(LIB_NAMESPACE LibA)
-set(LIB_NAME libA)
+set(LIB_NAMESPACE LibB)
+set(LIB_NAME libB)
 
-add_library(${LIB_NAME} INTERFACE)
-target_include_directories(${LIB_NAME} INTERFACE
+add_library(${LIB_NAME} src/LibB/libB.cpp)
+target_include_directories(${LIB_NAME} PUBLIC
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
@@ -23,7 +21,11 @@ install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 # generate target target file
 set(TARGET_FILE_NAME ${LIB_NAME}Targets)
-install(TARGETS ${LIB_NAME} EXPORT ${TARGET_FILE_NAME} INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(TARGETS ${LIB_NAME}
+        EXPORT ${TARGET_FILE_NAME}
+        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(EXPORT ${LIB_NAME}Targets  NAMESPACE ${LIB_NAMESPACE}:: DESTINATION lib/cmake/${LIB_NAME})
 
 # generate version config version file
@@ -45,7 +47,5 @@ install(FILES
 #Add an alias so that library can be used inside the build tree, e.g. when testing
 add_library(${LIB_NAMESPACE}::${LIB_NAME} ALIAS ${LIB_NAME})
 
-if (LIBA_TEST)
-    enable_testing()
-    add_subdirectory(test)
-endif()
+enable_testing()
+add_subdirectory(test)
