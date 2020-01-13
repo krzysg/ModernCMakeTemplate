@@ -7,7 +7,7 @@ Since many examples of modern CMake I have found are too naive my main goal was 
 - header only library with tests (LibA) 
 - simple regular static .h/.cpp library with tests (LibB)
 - project that is using this libraries added as a subproject (this project)
-- project that is using LibA/LibB after installation and is searching them via find_package() CMake function.
+- project that is using LibA/LibB after installation and is searching them via find_package() CMake function (externalClientProject)
 
 Below you can find all needed use cases and information how to build them.
 To learn how it works go through `CMakeList.txt` files, they are kept as easy as possible (altogether with other library and test files).
@@ -90,10 +90,10 @@ make
 ./main
 ```
 
-### I want to use LibA and/or LibB as in a external project
+### I want to use LibA and/or LibB in a external project
 First we need to build and install libraries:
 ```
-# cretae build directory, run cmake and install libs in `/tmp/myNewLibs` directory
+# create build directory, run cmake and install libs in `/tmp/myNewLibs` directory
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=/tmp/myNewLibs ..
