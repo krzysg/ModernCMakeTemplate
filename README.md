@@ -4,10 +4,10 @@
 This is a simple example of using modern CMake basing on great Daniel Pfeifer’s presentation ([video](https://www.youtube.com/watch?v=bsXLMQ6WgIk) and [slides](https://github.com/boostcon/cppnow_presentations_2017/blob/master/05-19-2017_friday/effective_cmake__daniel_pfeifer__cppnow_05-19-2017.pdf)).
 
 Since many examples of modern CMake I have found are too naive my main goal was to create
-- header only library with tests (LibA) 
-- simple regular static .h/.cpp library with tests (LibB)
+- header only library with tests (`LibA`) 
+- simple regular static .h/.cpp library with tests (`LibB`)
 - project that is using this libraries added as a subproject (this project)
-- project that is using LibA/LibB after installation and is searching them via find_package() CMake function (externalClientProject)
+- project that is using LibA/LibB after installation and is searching them via find_package() CMake function (`externalClientProject`)
 
 Below you can find all needed use cases and information how to build them.
 To learn how it works go through `CMakeList.txt` files, they are kept as easy as possible (altogether with other library and test files).
@@ -26,7 +26,7 @@ git clone git@github.com:krzysg/ModernCMakeTemplate.git
 cd ModernCMakeTemplate
 ```
 
-**NOTICE**: Each use case commands are meant to run from project root directory.
+**NOTICE: Each use case commands are meant to run from project root directory.**
 
 ### I want to create header only library
 Focus only on `LibA` directory. This is full example of header only library that can be installed and tested.
@@ -73,7 +73,7 @@ ctest
 ```
 
 ### I want to use LibA and LibB as a subproject
-The whole ModernCMakeTemplate project is a example of that case. Main cpp file `src/main.cpp` is using LibA and LibB.
+The whole ModernCMakeTemplate project is a example of that case. Main cpp file `src/main.cpp` is using `LibA` and `LibB`.
 To build project run:
 ```
 # create build directory and enter it
@@ -111,10 +111,10 @@ make install
 cd ../..
 ```
 
-and repeating this step for LibB. But since we have master CMakeLists.txt we can use it.
+and repeating this step for `LibB`. But since we have master `CMakeLists.txt` we can use it.
 
-Now, we have libraries installed and we would like to use it in external project. Such a example is in 'externalClientProject' directory.
-To build it run (remember in setting up env variable since we have intalled LibA and LibB in non standard directory):
+Now, we have libraries installed and we would like to use it in external project. Such a example is in `externalClientProject` directory.
+To build it run (remember in setting up env variable since we have intalled `LibA` and `LibB` in non standard directory):
 ```
 cd externalClientProject
 
